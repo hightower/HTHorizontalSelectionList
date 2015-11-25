@@ -515,7 +515,7 @@ static NSString *ViewCellIdentifier = @"ViewCell";
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
-                        layout:(UICollectionViewLayout *)collectionViewLayout
+                        layout:(UICollectionViewFlowLayout *)collectionViewLayout
         insetForSectionAtIndex:(NSInteger)section {
 
     NSInteger numberOfItems = [self.dataSource numberOfItemsInSelectionList:self];
@@ -556,7 +556,7 @@ static NSString *ViewCellIdentifier = @"ViewCell";
         }
     } else if (self.centerButtons) {
         NSInteger numberOfCells = [self.dataSource numberOfItemsInSelectionList:self];
-        NSInteger edgeInsets = (self.superview.frame.size.width - (numberOfCells * collectionViewLayout.itemSize.width)) / (numberOfCells + 1);
+        NSInteger edgeInsets = (self.frame.size.width - (numberOfCells * collectionViewLayout.itemSize.width)) / (numberOfCells + 1);
         
         return UIEdgeInsetsMake(0, edgeInsets, 0, edgeInsets);
     }

@@ -554,6 +554,11 @@ static NSString *ViewCellIdentifier = @"ViewCell";
 
             return UIEdgeInsetsMake(0, inset, 0, inset);
         }
+    } else if (self.centerButtons) {
+        NSInteger numberOfCells = [self.dataSource numberOfItemsInSelectionList:self];
+        NSInteger edgeInsets = (self.superview.frame.size.width - (numberOfCells * collectionViewLayout.itemSize.width)) / (numberOfCells + 1);
+        
+        return UIEdgeInsetsMake(0, edgeInsets, 0, edgeInsets);
     }
 
     return UIEdgeInsetsMake(0, kHTHorizontalSelectionListHorizontalMargin, 0, kHTHorizontalSelectionListHorizontalMargin);

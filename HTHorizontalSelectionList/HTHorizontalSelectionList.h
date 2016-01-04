@@ -51,6 +51,9 @@ typedef NS_ENUM(NSInteger, HTHorizontalSelectionIndicatorAnimationMode) {
 /// Default is NO.  If YES, the selected button will be centered on selection.
 @property (nonatomic) BOOL centerOnSelection;
 
+/// Default is NO.  If YES, buttons will be aligned to center in view.
+@property (nonatomic) BOOL centerButtons;
+
 /// Default is NO.  If YES, forces the centermost button to be centered after dragging.
 @property (nonatomic) BOOL snapToCenter;
 

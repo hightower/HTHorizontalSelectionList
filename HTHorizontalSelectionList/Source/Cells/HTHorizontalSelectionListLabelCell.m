@@ -47,7 +47,7 @@
         _badgeView = [[M13BadgeView alloc] initWithFrame:CGRectMake(0, 0, 8, 14)];
         _badgeView.font = [UIFont systemFontOfSize:10];
         _badgeView.horizontalAlignment = M13BadgeViewHorizontalAlignmentRight;
-        _badgeView.alignmentShift = CGSizeMake(-5, 5);
+        _badgeView.alignmentShift = CGSizeMake(-5, (CGFloat) ((self.frame.size.height - _badgeView.frame.size.height) * 0.5));
         _badgeView.hidesWhenZero = YES;
         [_titleLabel addSubview:_badgeView];
 

@@ -42,7 +42,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIColor *selectionIndicatorColor;
 @property (nonatomic, strong) UIColor *bottomTrimColor;
 
-
 /// Default is NO
 @property (nonatomic) BOOL bottomTrimHidden;
 

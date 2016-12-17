@@ -165,6 +165,8 @@ static NSString *ViewCellIdentifier = @"ViewCell";
 }
 
 - (void)layoutSubviews {
+    [super layoutSubviews];
+
     [self reloadData];
 
     if (self.showsEdgeFadeEffect) {
@@ -190,8 +192,6 @@ static NSString *ViewCellIdentifier = @"ViewCell";
 
         [self bringSubviewToFront:self.edgeFadeGradientView];
     }
-
-    [super layoutSubviews];
 }
 
 - (void)dealloc {

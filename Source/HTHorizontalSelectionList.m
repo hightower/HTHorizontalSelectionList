@@ -165,9 +165,16 @@ static NSString *ViewCellIdentifier = @"ViewCell";
 }
 
 - (void)layoutSubviews {
-    [super layoutSubviews];
+	[super layoutSubviews];
 
-    [self reloadData];
+	// only update the indicator, so that the cells don't disappear
+	[self updateIndicator];
+	
+	// need to force layout of collection view so that layout attributes are current
+	[self.collectionView layoutIfNeeded];
+	
+	// forces re-centering after frame change
+	[self setSelectedButtonIndex:_selectedButtonIndex animated:NO];
 
     if (self.showsEdgeFadeEffect) {
         CAGradientLayer *maskLayer = [CAGradientLayer layer];
@@ -265,7 +272,10 @@ static NSString *ViewCellIdentifier = @"ViewCell";
 - (void)reloadData {
     [self.collectionView reloadData];
     [self.collectionView layoutIfNeeded];
+    [self updateIndicator];
+}
 
+- (void)updateIndicator {
     NSInteger totalButtons = [self.dataSource numberOfItemsInSelectionList:self];
 
     if (totalButtons < 1) {
@@ -395,7 +405,7 @@ static NSString *ViewCellIdentifier = @"ViewCell";
 
                          if (!self.autoselectCentralItem) {
                              [self.collectionView scrollRectToVisible:CGRectInset(selectedCellFrame, -self.horizontalMargin, 0)
-                                                             animated:animated];
+                                                             animated:NO];
                          }
                      }
                      completion:nil];

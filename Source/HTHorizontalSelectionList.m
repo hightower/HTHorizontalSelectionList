@@ -171,6 +171,7 @@ static NSString *ViewCellIdentifier = @"ViewCell";
 	[self updateIndicator];
 	
 	// need to force layout of collection view so that layout attributes are current
+    [self.collectionView.collectionViewLayout invalidateLayout];
 	[self.collectionView layoutIfNeeded];
 	
 	// forces re-centering after frame change

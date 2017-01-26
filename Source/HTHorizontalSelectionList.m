@@ -347,13 +347,15 @@ static NSString *ViewCellIdentifier = @"ViewCell";
     UICollectionViewLayoutAttributes *selectedCellAttributes = [self.collectionView.collectionViewLayout layoutAttributesForItemAtIndexPath:selectedIndexPath];
     CGRect selectedCellFrame = selectedCellAttributes.frame;
 
-    [self layoutIfNeeded];
     [UIView animateWithDuration:animated ? 0.4 : 0.0
                           delay:0
          usingSpringWithDamping:[self selectionIndicatorBarSpringDamping]
           initialSpringVelocity:0
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
+								
+								[self layoutIfNeeded];
+
                          UICollectionViewCell *oldSelectedCell = [self.collectionView cellForItemAtIndexPath:oldSelectedIndexPath];
                          UICollectionViewCell *selectedCell = [self.collectionView cellForItemAtIndexPath:selectedIndexPath];
 

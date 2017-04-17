@@ -2,9 +2,11 @@ PODS:
   - HTHorizontalSelectionList (0.7.4):
     - M13BadgeView (~> 1.0.4)
   - M13BadgeView (1.0.4)
+  - Masonry (1.0.2)
 
 DEPENDENCIES:
   - HTHorizontalSelectionList (from `../`)
+  - Masonry
 
 EXTERNAL SOURCES:
   HTHorizontalSelectionList:
@@ -13,7 +15,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   HTHorizontalSelectionList: c38792f4bc87f941ab6c07b02a40abf111c68249
   M13BadgeView: 700dd0714fdc837c0cf1c8c004454963ec22441f
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
 
-PODFILE CHECKSUM: b22ea03e2e0e7f60e45126dcaf32a9871c954e43
+PODFILE CHECKSUM: c30caf3697375df253a22e5928f499db3564c900
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

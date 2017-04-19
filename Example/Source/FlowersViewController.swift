@@ -31,7 +31,7 @@ import UIKit
         selectionList.dataSource = self
 
         selectionList.selectionIndicatorStyle = .buttonBorder
-        selectionList.selectionIndicatorColor = UIColor.blue
+//        selectionList.selectionIndicatorColor = UIColor.blue
         selectionList.bottomTrimHidden = true
 
         selectionList.buttonInsets = UIEdgeInsetsMake(3, 10, 3, 10);

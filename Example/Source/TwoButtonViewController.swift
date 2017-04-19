@@ -11,7 +11,7 @@ import UIKit
 @objc class TwoButtonViewController: UIViewController, HTHorizontalSelectionListDelegate, HTHorizontalSelectionListDataSource {
 
     var selectionList : HTHorizontalSelectionList?
-    let titles : [String] = ["Button 1", "Button 2"]
+    let titles : [String] = ["Button 1", "Button 2", "Button 3", "Button 4", "Button 5"]
     var selectedTitleLabel : UILabel?
 
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ import UIKit
         selectionList.dataSource = self
 
         selectionList.selectionIndicatorStyle = .buttonBorder
-        selectionList.selectionIndicatorColor = UIColor.blue
+//        selectionList.selectionIndicatorColor = UIColor.red
         selectionList.bottomTrimHidden = true
 
         selectionList.centerButtons = true

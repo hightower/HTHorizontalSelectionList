@@ -44,18 +44,7 @@
                       @"Audi",
                       @"Bitter",
                       @"BMW",
-                      @"Büssing",
-                      @"Gumpert",
-                      @"MAN",
-                      @"Mercedes-Benz",
-                      @"Multicar",
-                      @"Neoplan",
-                      @"NSU",
-                      @"Opel",
-                      @"Porsche",
-                      @"Robur",
-                      @"Volkswagen",
-                      @"Wiesmann"];
+                      @"Büssing"];
     
     [self.view addSubview:self.textSelectionList];
     
@@ -63,7 +52,6 @@
     self.selectedCarLabel.text = self.carMakes[self.textSelectionList.selectedButtonIndex];
     self.selectedCarLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.selectedCarLabel];
-    
     [self.textSelectionList mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.leading.trailing.equalTo(self.view).offset(0);
         make.height.equalTo(@40);

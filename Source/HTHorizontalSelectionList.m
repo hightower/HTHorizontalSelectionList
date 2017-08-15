@@ -211,7 +211,7 @@ static NSString *ViewCellIdentifier = @"ViewCell";
 }
 
 - (void)setSelectionIndicatorColor:(UIColor *)selectionIndicatorColor {
-    self.selectionIndicatorBar.backgroundColor = selectionIndicatorColor;
+    self.selectionIndicatorBar.backgroundColor = [UIColor clearColor];
 
     if (!self.titleColorsByState[@(UIControlStateSelected)]) {
         self.titleColorsByState[@(UIControlStateSelected)] = selectionIndicatorColor;
@@ -496,10 +496,9 @@ static NSString *ViewCellIdentifier = @"ViewCell";
             return CGSizeMake(buttonWidth, collectionViewHeight);
         }
     } else if ([self.dataSource respondsToSelector:@selector(selectionList:titleForItemWithIndex:)]) {
-        NSString *title = [self.dataSource selectionList:self titleForItemWithIndex:indexPath.item];
-        CGSize titleSize = [HTHorizontalSelectionListLabelCell sizeForTitle:title withFont:self.titleFontsByState[@(UIControlStateNormal)]];
-
-        CGFloat width = titleSize.width + horizontalPadding + kHTHorizontalSelectionListLabelCellInternalPadding;
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat screenWidth = screenRect.size.width;
+        CGFloat width = screenWidth/3;
 
         return CGSizeMake(width, MAX(0, MIN(collectionViewHeight, collectionViewHeight - verticalPadding)));
     }

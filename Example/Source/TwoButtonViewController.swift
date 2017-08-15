@@ -11,20 +11,20 @@ import UIKit
 @objc class TwoButtonViewController: UIViewController, HTHorizontalSelectionListDelegate, HTHorizontalSelectionListDataSource {
 
     var selectionList : HTHorizontalSelectionList?
-    let titles : [String] = ["Button 1", "Button 2"]
+    let titles : [String] = ["Button 1", "Button 2", "Button 3", "Button 4", "Button 5"]
     var selectedTitleLabel : UILabel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.edgesForExtendedLayout = .None
+        self.edgesForExtendedLayout = UIRectEdge()
 
-        let selectionList = HTHorizontalSelectionList(frame: CGRectMake(0, 0, view.frame.size.width, 80))
+        let selectionList = HTHorizontalSelectionList(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 80))
         selectionList.delegate = self
         selectionList.dataSource = self
 
-        selectionList.selectionIndicatorStyle = .ButtonBorder
-        selectionList.selectionIndicatorColor = UIColor.blueColor()
+        selectionList.selectionIndicatorStyle = .buttonBorder
+//        selectionList.selectionIndicatorColor = UIColor.red
         selectionList.bottomTrimHidden = true
 
         selectionList.centerButtons = true
@@ -40,15 +40,15 @@ import UIKit
         view.addSubview(selectedTitleLabel)
 
         view.addConstraint(NSLayoutConstraint(item: selectedTitleLabel,
-            attribute: .CenterX,
-            relatedBy: .Equal,
+            attribute: .centerX,
+            relatedBy: .equal,
             toItem: view,
-            attribute: .CenterX,
+            attribute: .centerX,
             multiplier: 1.0,
             constant: 0.0))
 
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[selectionList]-margin-[selectedFlowerView]",
-            options: .DirectionLeadingToTrailing,
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[selectionList]-margin-[selectedFlowerView]",
+            options: NSLayoutFormatOptions(),
             metrics: ["margin" : 50],
             views: ["selectionList" : selectionList, "selectedFlowerView" : selectedTitleLabel]))
 
@@ -58,17 +58,17 @@ import UIKit
 
     // MARK: - HTHorizontalSelectionListDataSource Protocol Methods
 
-    func numberOfItemsInSelectionList(selectionList: HTHorizontalSelectionList) -> Int {
+    func numberOfItems(in selectionList: HTHorizontalSelectionList) -> Int {
         return titles.count
     }
 
-    func selectionList(selectionList: HTHorizontalSelectionList, titleForItemWithIndex index: Int) -> String? {
+    func selectionList(_ selectionList: HTHorizontalSelectionList, titleForItemWith index: Int) -> String? {
         return titles[index]
     }
 
     // MARK: - HTHorizontalSelectionListDelegate Protocol Methods
 
-    func selectionList(selectionList: HTHorizontalSelectionList, didSelectButtonWithIndex index: Int) {
+    func selectionList(_ selectionList: HTHorizontalSelectionList, didSelectButtonWith index: Int) {
         // update the view for the corresponding index
         selectedTitleLabel?.text = titles[index]
     }

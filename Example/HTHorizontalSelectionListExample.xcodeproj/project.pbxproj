@@ -28,7 +28,7 @@
 		03ED30FA1DDA56B800A408E3 /* flower6.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 03ED30F21DDA56B800A408E3 /* flower6.jpeg */; };
 		03ED30FB1DDA56B800A408E3 /* flower7.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 03ED30F31DDA56B800A408E3 /* flower7.jpeg */; };
 		03ED30FC1DDA56B800A408E3 /* flower8.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 03ED30F41DDA56B800A408E3 /* flower8.jpeg */; };
-		E4EB0DEADCC001B5B5896B3F /* libPods-HTHorizontalSelectionListExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D61DC8390BF4AC29C16B5EF /* libPods-HTHorizontalSelectionListExample.a */; };
+		E16BB47A6E9F95609B24C885 /* libPods-HTHorizontalSelectionListExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17E782EFDEEB462BC63738E /* libPods-HTHorizontalSelectionListExample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +60,8 @@
 		03ED30F31DDA56B800A408E3 /* flower7.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flower7.jpeg; sourceTree = "<group>"; };
 		03ED30F41DDA56B800A408E3 /* flower8.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flower8.jpeg; sourceTree = "<group>"; };
 		23F52A51C55F61EDC373DA3F /* Pods-HTHorizontalSelectionListExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTHorizontalSelectionListExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HTHorizontalSelectionListExample/Pods-HTHorizontalSelectionListExample.debug.xcconfig"; sourceTree = "<group>"; };
-		7D61DC8390BF4AC29C16B5EF /* libPods-HTHorizontalSelectionListExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HTHorizontalSelectionListExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D570BCCA5A71FCE941E40C0 /* Pods-HTHorizontalSelectionListExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTHorizontalSelectionListExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-HTHorizontalSelectionListExample/Pods-HTHorizontalSelectionListExample.release.xcconfig"; sourceTree = "<group>"; };
+		E17E782EFDEEB462BC63738E /* libPods-HTHorizontalSelectionListExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HTHorizontalSelectionListExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4EB0DEADCC001B5B5896B3F /* libPods-HTHorizontalSelectionListExample.a in Frameworks */,
+				E16BB47A6E9F95609B24C885 /* libPods-HTHorizontalSelectionListExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +148,7 @@
 		1C3DEFC7EC3E8C1D926009B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7D61DC8390BF4AC29C16B5EF /* libPods-HTHorizontalSelectionListExample.a */,
+				E17E782EFDEEB462BC63738E /* libPods-HTHorizontalSelectionListExample.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -198,6 +198,7 @@
 				TargetAttributes = {
 					036F053A19C624D9000D2EEB = {
 						CreatedOnToolsVersion = 6.0;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -422,6 +423,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/HTHorizontalSelectionListExample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -438,6 +440,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hightower.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/HTHorizontalSelectionListExample-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

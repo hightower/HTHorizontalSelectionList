@@ -9,6 +9,7 @@
 #import "CatsViewController.h"
 
 #import <HTHorizontalSelectionList/HTHorizontalSelectionList.h>
+#import "Masonry.h"
 
 @interface CatsViewController () <HTHorizontalSelectionListDelegate, HTHorizontalSelectionListDataSource>
 
@@ -29,7 +30,7 @@
 
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
-    self.customViewSelectionList = [[HTHorizontalSelectionList alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
+    self.customViewSelectionList = [[HTHorizontalSelectionList alloc] initWithFrame:CGRectZero];
     self.customViewSelectionList.delegate = self;
     self.customViewSelectionList.dataSource = self;
 
@@ -47,6 +48,10 @@
                        [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"spacecat5.jpeg"]]];
 
     [self.view addSubview:self.customViewSelectionList];
+    [self.customViewSelectionList mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.leading.trailing.equalTo(self.view).offset(0);
+        make.height.equalTo(@100);
+    }];
 
     self.selectedSpaceCatView = [[UIView alloc] init];
     UIImage *selectedImage = ((UIImageView *)self.spaceCats[self.customViewSelectionList.selectedButtonIndex]).image;

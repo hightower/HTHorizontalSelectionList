@@ -165,7 +165,17 @@ static NSString *ViewCellIdentifier = @"ViewCell";
 }
 
 - (void)layoutSubviews {
-    [self reloadData];
+	[super layoutSubviews];
+
+	// only update the indicator, so that the cells don't disappear
+	[self updateIndicator];
+	
+	// need to force layout of collection view so that layout attributes are current
+    [self.collectionView.collectionViewLayout invalidateLayout];
+	[self.collectionView layoutIfNeeded];
+	
+	// forces re-centering after frame change
+	[self setSelectedButtonIndex:_selectedButtonIndex animated:NO];
 
     if (self.showsEdgeFadeEffect) {
         CAGradientLayer *maskLayer = [CAGradientLayer layer];
@@ -190,8 +200,6 @@ static NSString *ViewCellIdentifier = @"ViewCell";
 
         [self bringSubviewToFront:self.edgeFadeGradientView];
     }
-
-    [super layoutSubviews];
 }
 
 - (void)dealloc {
@@ -265,7 +273,10 @@ static NSString *ViewCellIdentifier = @"ViewCell";
 - (void)reloadData {
     [self.collectionView reloadData];
     [self.collectionView layoutIfNeeded];
+    [self updateIndicator];
+}
 
+- (void)updateIndicator {
     NSInteger totalButtons = [self.dataSource numberOfItemsInSelectionList:self];
 
     if (totalButtons < 1) {
@@ -336,13 +347,15 @@ static NSString *ViewCellIdentifier = @"ViewCell";
     UICollectionViewLayoutAttributes *selectedCellAttributes = [self.collectionView.collectionViewLayout layoutAttributesForItemAtIndexPath:selectedIndexPath];
     CGRect selectedCellFrame = selectedCellAttributes.frame;
 
-    [self layoutIfNeeded];
     [UIView animateWithDuration:animated ? 0.4 : 0.0
                           delay:0
          usingSpringWithDamping:[self selectionIndicatorBarSpringDamping]
           initialSpringVelocity:0
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
+								
+								[self layoutIfNeeded];
+
                          UICollectionViewCell *oldSelectedCell = [self.collectionView cellForItemAtIndexPath:oldSelectedIndexPath];
                          UICollectionViewCell *selectedCell = [self.collectionView cellForItemAtIndexPath:selectedIndexPath];
 
@@ -395,7 +408,7 @@ static NSString *ViewCellIdentifier = @"ViewCell";
 
                          if (!self.autoselectCentralItem) {
                              [self.collectionView scrollRectToVisible:CGRectInset(selectedCellFrame, -self.horizontalMargin, 0)
-                                                             animated:animated];
+                                                             animated:NO];
                          }
                      }
                      completion:nil];

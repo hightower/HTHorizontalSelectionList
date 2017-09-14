@@ -60,6 +60,21 @@ The horizontal selection list uses a data-source/delegate model (similar to UITa
     return self.carMakes[index];
 }
 
+- (NSString *)selectionList:(HTHorizontalSelectionList *)selectionList badgeValueForItemWithIndex:(NSInteger)index {
+    /**
+     * Updates the badge value text for the corresponding index. For example: If you had 100 (all cars), 50 Audis, and
+     * 50 Bitters, you could set a badge to three of the tabs by doing the following:
+    /**
+    switch (index) {
+    	case 0:
+	    return @"100";
+	case 1:
+            return @"50";
+	case 2:
+	    return @"50";
+    }
+}
+
 #pragma mark - HTHorizontalSelectionListDelegate Protocol Methods
 
 - (void)selectionList:(HTHorizontalSelectionList *)selectionList didSelectButtonWithIndex:(NSInteger)index {

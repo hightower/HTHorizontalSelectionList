@@ -50,6 +50,17 @@ static NSString *ViewCellIdentifier = @"ViewCell";
     return self;
 }
 
+- (CGSize )intrinsicContentSize {
+#ifdef __IPHONE_11_0
+    if(@available(iOS 11.0, *))
+    {
+        if([self.superview.superview isKindOfClass: [UINavigationBar class]])
+            return UILayoutFittingExpandedSize;
+    }
+#endif
+    return UILayoutFittingCompressedSize;
+}
+
 - (void)commonInit {
     self.backgroundColor = [UIColor whiteColor];
 
